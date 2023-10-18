@@ -96,22 +96,23 @@ namespace ioh::problem::cec
         }
     };
 
-    // class cec2022_06 final : public CEC2022Problem<cec2022_06>
-    // {
-    // protected:
-    //     double evaluate(const std::vector<double> &x)
-    //     {
-    //         std::vector<double> sr_x(x);
-    //         double f = cec_hybrid_funcs_.cec2022_hf01(sr_x, Os_, Mr_, SS_,
-    //         true, true, nx_); return f + 1800.0;
-    //     }
+    class cec2022_06 final : public CEC2022Problem<cec2022_06>
+    {
+    protected:
+        double evaluate(const std::vector<double> &x)
+        {
+            std::vector<double> sr_x(x);
+            double f = cec_hybrid_funcs_.cec2022_hf01(sr_x, Os_, Mr_, SS_, true,
+                                                      true, nx_);
+            return f + 1800.0;
+        }
 
-    // public:
-    //     cec2022_06(const int instance, const int n_variables) :
-    //     CEC2022Problem(6, instance, n_variables, "cec2022_06")
-    //     {
-    //     }
-    // };
+    public:
+        cec2022_06(const int instance, const int n_variables) :
+            CEC2022Problem(6, instance, n_variables, "cec2022_06")
+        {
+        }
+    };
 
     // class cec2022_07 final : public CEC2022Problem<cec2022_07>
     // {

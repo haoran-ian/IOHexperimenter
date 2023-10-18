@@ -39,21 +39,21 @@ namespace ioh::problem
         {
             fn_ = problem_id;
             nx_ = n_variables;
+            std::string dataPath = "/scratch/hyin/IOHexperimenter/include/ioh/"
+                                   "problem/cec/cec_data";
             if (nx_ != 1)
-                loadCecData();
+            {
+                cec_utils_.loadOShiftData(Os_, dataPath, nx_, fn_, 2022);
+                cec_utils_.loadMatrixData(Mr_, dataPath, nx_, fn_, 2022);
+                if (6 <= fn_ && fn_ <= 8)
+                {
+                    cec_utils_.loadShuffleData(SS_, dataPath, nx_, fn_, 2022);
+                }
+            }
             // optimum_=0;
             Solution<double, double> opt = Solution<double, double>(Os_, 0.);
             optimum_ = opt;
             log_info_.optimum = optimum_;
-        }
-
-        void loadCecData()
-        {
-            std::string dataPath = "/scratch/hyin/IOHexperimenter/include/ioh/"
-                                   "problem/cec/cec_data";
-            cec_utils_.loadOShiftData(Os_, dataPath, nx_, fn_, 2022);
-            cec_utils_.loadMatrixData(Mr_, dataPath, nx_, fn_, 2022);
-            cec_utils_.loadShuffleData(SS_, dataPath, nx_, fn_, 2022);
         }
     };
 

@@ -182,6 +182,7 @@ namespace ioh::problem::cec
             fptOShiftData.open(FileName);
             if (!fptOShiftData)
             {
+                std::cout << FileName << std::endl;
                 perror("Error: Cannot open input file for reading");
             }
             int OShiftSize = fn < funcTreshold ? dim : coeff * dim;
@@ -277,6 +278,7 @@ namespace ioh::problem::cec
             fptShuffleData.open(FileName);
             if (!fptShuffleData)
             {
+                std::cout << FileName << std::endl;
                 perror("Error: Cannot open input file for reading");
             }
             int ShuffleSize = shuffleFlag ? dim : coeff * dim;
